@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="message">Select either Heads or Tails</div>
+    <button>Head</button>
+    <button>Tails</button>
+
+    <script>
+      const buttons = document.querySelectorAll("button");
+      const message = document.querySelector(".message");
+      const myArray = ["Head", "Tails"];
+
+      for (let i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener("click", tossCoin);
+      }
+
+      function tossCoin(e) {
+        let generateRandom = Math.floor(Math.random() * 2);
+        let computerGuess = myArray[generateRandom];
+        let playerGuess = e.target.innerText;
+        message.innerHTML = "Computer selected: " + computerGuess + "<br>";
+        //comparison
+        if (playerGuess === computerGuess) {
+          message.innerText += "YOU WON";
+        } else {
+          message.innerText += "YOU LOSE ";
+        }
+      }
+    </script>
+  </body>
+</html>

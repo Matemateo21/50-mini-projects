@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #player1,
+      #player2 {
+        display: inline-block;
+        border: 1px solid black;
+        width: 200px;
+        margin: 25px;
+        padding: 5px;
+        height: 140px;
+        text-align: center;
+        font-size: 7em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="gameArea">
+      <div class="" id="output"></div>
+      <div id="player1"></div>
+      <div id="player2"></div>
+    </div>
+    <button>Roll</button>
+
+    <script>
+      const button = document.querySelector("button");
+      const player1 = document.querySelector("#player1");
+      const player2 = document.querySelector("#player2");
+      const output = document.querySelector("#output");
+      button.addEventListener("click", function () {
+        let rolls = [roll(6), roll(6)];
+        let temp;
+        if (rolls[0] === rolls[1]) {
+          temp = "It was a draw";
+        } else if (rolls[0] > rolls[1]) {
+          temp = "Player one wins";
+        } else {
+          temp = "Player 2 twins";
+        }
+        output.innerHTML = temp;
+        player1.innerHTML = rolls[0];
+        player2.innerHTML = rolls[1];
+        console.log(rolls);
+      });
+
+      function roll(num) {
+        let rNumber = Math.floor(Math.random() * num) + 1;
+        let n = 9855 + rNumber;
+        let char = "&#" + n + ";";
+
+        return rNumber + " " + char;
+      }
+    </script>
+  </body>
+</html>
