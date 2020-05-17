@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="message">Ask your question</div>
+    <input type="text" placeholder="write your question here" />
+    <button>Ask</button>
+
+    <script>
+      let answer = [
+        "It will work",
+        "Maybe maybe not",
+        "Probably not",
+        "Highly possible",
+        "Impossilble to guess",
+        "Yes",
+        "I do not know",
+      ];
+      const message = document.querySelector(".message");
+      let input = document.querySelector("input");
+      let button = document.querySelector("button");
+
+      button.addEventListener("click", function () {
+        let res = Math.floor(Math.random() * answer.length);
+        console.log(answer[res]);
+
+        message.innerText = input.value + " : " + answer[res];
+        input.value = "";
+        console.log(input);
+      });
+    </script>
+  </body>
+</html>
+
